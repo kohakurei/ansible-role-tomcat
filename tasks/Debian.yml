@@ -1,0 +1,12 @@
+---
+- name: Update repository
+  apt:
+    update_cache: yes
+
+- name: Ensure packages
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+      - "{{ tomcat_packages }}"
